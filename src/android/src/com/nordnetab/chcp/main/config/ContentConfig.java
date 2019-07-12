@@ -17,10 +17,9 @@ public class ContentConfig {
     // JSON keys to parse chcp.json
     private static class JsonKeys {
         public static final String VERSION = "release";
-        public static final String MINIMUM_NATIVE_VERSION = "min_native_interface";
+        public static final String MINIMUM_NATIVE_VERSION = "android_min_native_interface";
         public static final String UPDATE = "update";
         public static final String CONTENT_URL = "content_url";
-        public static final String ANDROID_CONTENT_URL = "android_content_url";
     }
 
     /**
@@ -37,9 +36,7 @@ public class ContentConfig {
                 config.setReleaseVersion(node.get(JsonKeys.VERSION).asText());
             }
 
-            if (node.has(JsonKeys.ANDROID_CONTENT_URL)) {
-                config.setContentUrl(node.get(JsonKeys.ANDROID_CONTENT_URL).asText());
-            } else if (node.has(JsonKeys.CONTENT_URL)) {
+            if (node.has(JsonKeys.CONTENT_URL)) {
                 config.setContentUrl(node.get(JsonKeys.CONTENT_URL).asText());
             }
 
